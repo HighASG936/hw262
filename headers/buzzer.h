@@ -1,17 +1,15 @@
 #ifndef buzzer_h
 #define buzzer_h
 
+#define BUZZER_PIN 3
+
 class buzzer
 {
     public:
         buzzer();
-        void on();
-        void off();
-        void toggle();
-
-    private:
-        const char buzzer_pin = 3;
-        bool state;
+        static void buzzerOn();
+        static void buzzerOff();
+        static void buzzerToggle();
 };
 
 #endif

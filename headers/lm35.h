@@ -3,17 +3,18 @@
 
 #include "Arduino.h"
 
-#define FACTOR_CONVERSION 0.2046
+
 
 class lm35
 {
     public:
         lm35();
-        int read_sensor();
-        int measure_centigrads();
+        static uint16_t read_sensor();
+        static uint16_t measure_centigrads();
 
     private:
-        const char lm35_output = A4;
+        static const uint8_t lm35_output = A4;
+        static const float Factor_conversion = 0.2046;
 };
 
 #endif

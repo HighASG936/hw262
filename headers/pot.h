@@ -7,11 +7,11 @@ class pot
 {       
     public:
         pot();
-        int get_measure();  
-        int get_voltage(); //measure and convert to voltage unit
+        uint16_t read_sensor();  
+        uint16_t get_voltage();
     
     private:  
-        int pot_Pin = A0;
+        uint8_t pot_Pin = A0;
 
 };
 

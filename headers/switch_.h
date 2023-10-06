@@ -1,19 +1,24 @@
 #ifndef switch_h
 #define switch_h
 
+#include "stdint.h"
+
+typedef uint8_t SwitchPinNumber;
 
 class switch_
 {
-    typedef char SwitchPinNumber;
-    
     public:
         switch_();
+    
+        //Buttons pin number
+        static const SwitchPinNumber s1 = 15;
+        static const SwitchPinNumber s2 = 16;
+        static const  SwitchPinNumber s3 = 17;
+
         bool IsPressed(SwitchPinNumber switch_pin);
-        
-        SwitchPinNumber s1 = 15;
-        SwitchPinNumber s2 = 16;
-        SwitchPinNumber s3 = 17;
-        SwitchPinNumber Switches[3]={s1, s2, s3};
+    
+    private:
+        const SwitchPinNumber Switches[3]={s1, s2, s3};
 };
 
 #endif
