@@ -1,5 +1,5 @@
 #include "../headers/display_4digits.h"
-#include "Arduino.h"
+
 
 
 display_4digits::display_4digits()
@@ -77,9 +77,9 @@ void display_4digits::Send_bit_to_dotting(bool dot)
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Send_bits_of_digit(int UserNumber)
+void display_4digits::Send_bits_of_digit(uint16_t UserNumber)
 {
-  for(int i=0;i<7;i++)
+  for(uint8_t i=0;i<7;i++)
   {
     digitalWrite(sdi,NUMBERS[UserNumber][i]);
     Clk();
@@ -97,7 +97,7 @@ void display_4digits::Send_bits_of_digit(int UserNumber)
 void display_4digits::Send_Shifter_bits()
 {
   //Shift from QE to QH bits (see schematic)
-  for(int i=0;i<4;i++)
+  for(uint8_t i=0;i<4;i++)
   {
     digitalWrite(sdi,HIGH);
     Clk();
@@ -114,7 +114,7 @@ void display_4digits::Send_Shifter_bits()
  ***************************************************************/
 void display_4digits::Display_digit(bool positions[])
 {
-  for(int i=0;i<NUMBER_DIGITS;i++)
+  for(uint8_t i=0;i<NUMBER_DIGITS;i++)
   {
     digitalWrite(sdi,positions[i]);
     Clk();
@@ -134,7 +134,7 @@ void display_4digits::Display_digit(bool positions[])
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Digit(int UserNumber, bool a, bool b, bool c, bool d, bool dot)
+void display_4digits::Write_Digit(uint16_t UserNumber, bool a, bool b, bool c, bool d, bool dot)
 {  
   bool positions[4]={d,c,b,a};  
   
@@ -153,9 +153,9 @@ void display_4digits::Write_Digit(int UserNumber, bool a, bool b, bool c, bool d
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Units(int UserNumber)
+void display_4digits::Write_Units(uint16_t UserNumber)
 {
-  int units;
+  uint32_t units;
   
   if(UserNumber < 10)
   {    
@@ -172,9 +172,9 @@ void display_4digits::Write_Units(int UserNumber)
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Tens(int UserNumber)
+void display_4digits::Write_Tens(uint16_t UserNumber)
 {
-  int units, tens;
+  uint32_t units, tens;
   
   if(UserNumber >= 10  && UserNumber < 100)
   {
@@ -194,15 +194,15 @@ void display_4digits::Write_Tens(int UserNumber)
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Hundreds(int UserNumber)
+void display_4digits::Write_Hundreds(uint16_t NumerToWrite)
 {
-  int units, tens, hundreds;
+  uint32_t units, tens, hundreds;
 
-  if(UserNumber >= 100  && UserNumber < 1000)
+  if(NumerToWrite >= 100  && NumerToWrite < 1000)
   {
-    units = UserNumber%10;
-    tens  = (UserNumber%100)/10;
-    hundreds  = UserNumber/100;
+    units = NumerToWrite%10;
+    tens  = (NumerToWrite%100)/10;
+    hundreds  = NumerToWrite/100;
     Write_Digit(hundreds,0,1,0,0,NO_DOT);
     Write_Digit(tens,0,0,1,0,NO_DOT);
     Write_Digit(units,0,0,0,1,NO_DOT);
@@ -217,16 +217,16 @@ void display_4digits::Write_Hundreds(int UserNumber)
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Thousands(int UserNumber)
+void display_4digits::Write_Thousands(uint16_t NumerToWrite)
 {
-  int units, tens, hundreds, thousands;
+  uint32_t units, tens, hundreds, thousands;
 
-  if(UserNumber >= 1000  && UserNumber < 10000)
+  if(NumerToWrite >= 1000  && NumerToWrite < 10000)
   {            
-    units = UserNumber%10;
-    tens  = (UserNumber%100)/10;
-    hundreds  = (UserNumber%1000)/100;
-    thousands = UserNumber/1000;
+    units = NumerToWrite%10;
+    tens  = (NumerToWrite%100)/10;
+    hundreds  = (NumerToWrite%1000)/100;
+    thousands = NumerToWrite/1000;
     Write_Digit(thousands,1,0,0,0,NO_DOT);
     Write_Digit(hundreds,0,1,0,0,NO_DOT);
     Write_Digit(tens,0,0,1,0,NO_DOT);
@@ -246,12 +246,12 @@ void display_4digits::Write_Thousands(int UserNumber)
 @Status: RELEASED
 @Author: A. Siordia
  ***************************************************************/
-void display_4digits::Write_Number(int UserNumber)
+void display_4digits::Write_Number(uint16_t NumerToWrite)
 {
-  int units, tens, hundreds, thousands;
+  uint16_t units, tens, hundreds, thousands;
   Clear_Display();
-  Write_Units(UserNumber);
-  Write_Tens(UserNumber);
-  Write_Hundreds(UserNumber);
-  Write_Thousands(UserNumber);
+  Write_Units(NumerToWrite);
+  Write_Tens(NumerToWrite);
+  Write_Hundreds(NumerToWrite);
+  Write_Thousands(NumerToWrite);
 }

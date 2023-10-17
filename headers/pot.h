@@ -2,16 +2,14 @@
 #define pot_h
 
 #include "Arduino.h"
+#include "constants.h"
+#include "pins.h"
 
 class pot
 {       
     public:
-        pot();
-        uint16_t read_sensor();  
-        uint16_t get_voltage();
-    
-    private:  
-        uint8_t pot_Pin = A0;
+        uint8_t read_pot_sensor();  
+        uint8_t get_voltage();
 
 };
 

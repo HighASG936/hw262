@@ -24,3 +24,4 @@ void led::ledToggle(LedPinNumber led_pin)
     bool state = !digitalRead(led_pin);
     digitalWrite(led_pin, state);
 }
+

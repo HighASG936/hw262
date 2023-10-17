@@ -3,7 +3,7 @@
 
 switch_::switch_()
 {
-    for(int i; i<sizeof(Switches); i++)
+    for(uint8_t i; i<sizeof(Switches); i++)
     {
         pinMode(Switches[i], INPUT);
     }

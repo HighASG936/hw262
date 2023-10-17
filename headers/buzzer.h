@@ -1,7 +1,9 @@
 #ifndef buzzer_h
 #define buzzer_h
 
-#define BUZZER_PIN 3
+#include "stdint.h"
+#include "constants.h"
+#include "pins.h"
 
 class buzzer
 {
@@ -11,5 +13,6 @@ class buzzer
         static void buzzerOff();
         static void buzzerToggle();
 };
+
 
 #endif

@@ -1,13 +1,10 @@
 #ifndef display_4digits_h
 #define display_4digits_h
 
-#define DOT 1
-#define NO_DOT 0
-#define NUMBER_DIGITS 4
-#define NUMBER_OUTPUTS_BOTH_MC74HC595A 16
-
 #include "Arduino.h"
 #include "stdint.h"
+#include "constants.h"
+#include "pins.h"
 
 class display_4digits
 {
@@ -17,9 +14,6 @@ class display_4digits
         static void Clear_Display();
     
     private:
-        static const uint8_t lchclk = 4;
-        static const uint8_t sftclk = 7;
-        static const uint8_t sdi = 8;
 
         const bool NUMBERS[14][7]={ 
                          {1,0,0,0,0,0,0}, //0 

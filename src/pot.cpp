@@ -1,18 +1,11 @@
 #include "../headers/pot.h"
 
-pot::pot()
+uint8_t pot::read_pot_sensor()
 {
-
+    return analogRead(POTENCIOMETER_PIN);
 }
 
-int pot::get_measure()
+uint8_t pot::get_voltage()
 {
-    return analogRead(pot_Pin);
-}
-
-int pot::get_voltage()
-{
-    int measure = get_measure();
-    int voltage = (5000/1023)*measure;
-    return voltage;
+    return (SOURCE_VOLTAGE/MAX_VALUE_ADC)*read_pot_sensor();
 }

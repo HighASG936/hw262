@@ -3,23 +3,21 @@
 
 buzzer::buzzer()
 {
-    pinMode(buzzer_pin, OUTPUT);
-    off();
+    pinMode(BUZZER_PIN, OUTPUT);
+    buzzerOff();
 }
 
-void buzzer::on()
+void buzzer::buzzerOn()
 {
-    state = LOW;
-    digitalWrite(buzzer_pin, state);    
+    digitalWrite(BUZZER_PIN, LOW);    
 }
 
-void buzzer::off()
+void buzzer::buzzerOff()
 {
-    digitalWrite(buzzer_pin, HIGH);
+    digitalWrite(BUZZER_PIN, HIGH);
 }
 
-void buzzer::toggle()
+void buzzer::buzzerToggle()
 {
-    state = !state;
-    digitalWrite(buzzer_pin, state);
+    digitalWrite(BUZZER_PIN, !digitalRead(BUZZER_PIN));
 }
