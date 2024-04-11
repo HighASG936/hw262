@@ -1,5 +1,5 @@
-#ifndef constants_h
-#define constants_h
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 #define SOURCE_VOLTAGE 5000  /* mV */
 #define MAX_VALUE_ADC 0x3FF
@@ -15,3 +15,4 @@
 #define LM35_SENSOR_GAIN 10     /* mV/°C */
 
 #endif
+
