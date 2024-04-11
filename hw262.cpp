@@ -1,11 +1,14 @@
 
 #include "hw262.h"
 
-Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
+
+#if currentTempSensor == LM35
+    Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
+#endif
 
 void Hw262::begin(String currentTempSensor)
-{
-    this->currentTempSensor = currentTempSensor;
+{    
+    if(currentTempSensor != "") this->currentTempSensor = currentTempSensor;
 }
 
 uint16_t Hw262::readA5()
