@@ -35,7 +35,9 @@ class Hw262 :   public Led,
         #if currentTempSensor == LM35
             static Lm35 tempSensor;
             #define SENSOR_MESSAGE "Selected temperature sensor: LM35"
-        #elif currentTempSensor == DS18
+        #endif
+
+        #if currentTempSensor == DS18
             static Ds18 tempSensor;            
             #define SENSOR_MESSAGE "Selected temperature sensor: DS18"
         #else
