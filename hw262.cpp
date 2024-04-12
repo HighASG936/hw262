@@ -6,9 +6,9 @@
     Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
 #endif
 
-void Hw262::begin(String currentTempSensor)
+void Hw262::begin(String nameCurrentTempSensor)
 {    
-    if(currentTempSensor != "") this->currentTempSensor = currentTempSensor;
+    if(nameCurrentTempSensor != "") this->nameCurrentTempSensor = nameCurrentTempSensor;
 }
 
 uint16_t Hw262::readA5()

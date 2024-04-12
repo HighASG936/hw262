@@ -13,8 +13,7 @@
 #include "constants.h"
 
 #define DEFAULT_PRECISION 1
-#define LM35  lm35
-#define DS18  ds18
+#define LM35_SENSOR  "lm35"
 
 class Hw262 :   public Led, 
                 public Buzzer, 
@@ -23,30 +22,19 @@ class Hw262 :   public Led,
                 public Bluetooth,
                 public Switches
 {
-    private:
-        String currentTempSensor;
-
     protected:
-        static uint16_t readA5();                       
+        static uint16_t readA5();
+        static uint16_t readVoltageA5();                       
 
     public:
-        void begin(String currentTempSensor="");
-        
-        #if currentTempSensor == LM35
+        static String nameCurrentTempSensor;
+
+        #if nameCurrentTempSensor == LM35_SENSOR
             static Lm35 tempSensor;
-            #define SENSOR_MESSAGE "Selected temperature sensor: LM35"
         #endif
 
-        #if currentTempSensor == DS18
-            static Ds18 tempSensor;            
-            #define SENSOR_MESSAGE "Selected temperature sensor: DS18"
-        #else
-            #define SENSOR_MESSAGE "ERROR: unsupported sensor. Select 'lm35' or 'ds18' only"
-        #endif 
-
+        static void begin(String nameCurrentTempSensor="");
         static void resetAllLeds();
-        static uint16_t readVoltageA5();
-        
 };
 
 extern Hw262 HW262;
