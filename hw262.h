@@ -13,7 +13,7 @@
 #include "constants.h"
 
 #define DEFAULT_PRECISION 1
-#define LM35_SENSOR  "lm35"
+#define LM35_SENSOR  lm35
 
 class Hw262 :   public Led, 
                 public Buzzer, 
