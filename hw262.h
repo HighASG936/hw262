@@ -23,12 +23,11 @@ class Hw262 :   public Led,
                 public Switches
 {
     protected:
-        uint8_t sensorPrecision;
         static uint16_t readA5();
         static uint16_t readVoltageA5();                       
 
     public:
-        void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
+        static void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
         static Lm35 tempSensor;
         static void resetAllLeds();
 };
