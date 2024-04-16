@@ -8,6 +8,8 @@
 class Pot
 {
 
+    public: 
+    
     /**
      * @brief 
      * 
