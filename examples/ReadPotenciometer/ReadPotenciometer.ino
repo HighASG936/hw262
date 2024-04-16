@@ -12,6 +12,8 @@ void setup()
 
 void loop()
 {
-    HW262.getVoltagePot();
+    uint8_t v = HW262.getVoltagePot();
+    Serial.println(String(v)+" mV");
+    delay(1000);
 }
 
