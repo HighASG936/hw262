@@ -8,8 +8,8 @@
 class Lm35
 {
         public:
-            Lm35(uint8_t precision);
             static uint8_t precision;
+            Lm35(uint8_t precision=1);            
             static uint16_t precisionFactor;
             static uint16_t readLm35Sensor();
             static uint16_t measureCentigrads();

@@ -35,7 +35,5 @@ class Hw262 :   public Led,
         static void resetAllLeds();
 };
 
-extern Hw262 HW262;
-
 #endif
 
