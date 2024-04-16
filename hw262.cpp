@@ -10,6 +10,7 @@ void Hw262::begin(uint8_t sensorPrecision)
   Led();
   Buzzer();
   display4Digits();
+  Switches();
   tempSensor.setPrecision(sensorPrecision);
 }
 
