@@ -22,18 +22,16 @@ class Hw262 :   public Led,
                 public Bluetooth,
                 public Switches
 {
+    private: 
+        String nameCurrentTempSensor;
+
     protected:
         static uint16_t readA5();
         static uint16_t readVoltageA5();                       
 
     public:
-        static String nameCurrentTempSensor;
-
-        #if nameCurrentTempSensor == LM35_SENSOR
-            static Lm35 tempSensor;
-        #endif
-
-        static void begin(String nameCurrentTempSensor="");
+        Hw262(String nameCurrentTempSensor="");        
+        static Lm35 tempSensor;
         static void resetAllLeds();
 };
 
