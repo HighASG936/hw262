@@ -23,7 +23,7 @@ class Hw262 :   public Led,
                 public Switches
 {
     protected:
-    static uint8_t sensorPrecision;
+        uint8_t sensorPrecision;
         static uint16_t readA5();
         static uint16_t readVoltageA5();                       
 
