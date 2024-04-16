@@ -11,7 +11,9 @@ void setup()
 
 void loop()
 {
-    HW262.buzzerToggle();
-    delay(300);
+    HW262.buzzerOn();
+    delay(10);
+    HW262.buzzerOff();
+    delay(2000);    
 }
 

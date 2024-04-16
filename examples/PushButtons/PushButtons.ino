@@ -13,7 +13,7 @@ void loop()
 {
     if(HW262.IsPressed(s1)) HW262.ledToggle(d1);
     if(HW262.IsPressed(s2)) HW262.ledToggle(d2);
-    if(HW262.IsPressed(s3)) HW262.ledToggle(d4);
+    if(HW262.IsPressed(s3)) HW262.ledToggle(d3);
     delay(200);
 }
 
