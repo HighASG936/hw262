@@ -28,7 +28,7 @@ class Hw262 :   public Led,
         static uint16_t readVoltageA5();                       
 
     public:
-        static void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
+        void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
         static Lm35 tempSensor;
         static void resetAllLeds();
 };
