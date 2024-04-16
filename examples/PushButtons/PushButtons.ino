@@ -11,12 +11,9 @@ void setup()
 
 void loop()
 {
-    if(HW262.IsPressed(s1)) HW262.ledOn();
-    if(HW262.IsPressed(s2)) HW262.ledOff();
-    if(HW262.IsPressed(s3))
-    {
-        HW262.ledToggle();
-        delay(300);
-    }
+    if(HW262.IsPressed(s1)) HW262.ledToggle(d1);
+    if(HW262.IsPressed(s2)) HW262.ledToggle(d2);
+    if(HW262.IsPressed(s3)) HW262.ledToggle(d4);
+    delay(200);
 }
 

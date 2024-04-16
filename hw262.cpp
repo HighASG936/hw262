@@ -7,6 +7,9 @@ Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
 
 void Hw262::begin(uint8_t sensorPrecision)
 {
+  Led();
+  Buzzer();
+  display4Digits();
   tempSensor.setPrecision(sensorPrecision);
 }
 
