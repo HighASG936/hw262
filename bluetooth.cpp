@@ -8,18 +8,21 @@ Bluetooth::Bluetooth()
     sei();
 }
 
-void Bluetooth::send_data(uint8_t type, uint8_t value)
+/*
+void Bluetooth::sendData(uint8_t type, uint8_t value)
 {
+ 
     uint8_t data[2]={type, value};
-/*    
+   
     Serial.write(startTx);
     if(Serial.available())
     {   
         for(uint8_t i=0;i<sizeof(data);i++){Serial.write(data[i]);}
     }
     Serial.write(endTx);
-*/
+
 }
+
 
 void Bluetooth::send_temp(uint8_t temp)
 {
@@ -35,3 +38,4 @@ uint8_t Bluetooth::get_received_threshold()
 {
     return received_threshold;
 }
+*/

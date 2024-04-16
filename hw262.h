@@ -27,13 +27,8 @@ class Hw262 :   public Led,
         static uint16_t readVoltageA5();                       
 
     public:
-        static String nameCurrentTempSensor;
-
-        #if nameCurrentTempSensor == LM35_SENSOR
-            static Lm35 tempSensor;
-        #endif
-
-        static void begin(String nameCurrentTempSensor="");
+        static void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
+        static Lm35 tempSensor;
         static void resetAllLeds();
 };
 

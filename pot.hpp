@@ -6,16 +6,31 @@
 #include "pins.h"
 
 class Pot
-{       
-    static uint8_t read_pot_sensor()
+{
+
+    public: 
+    
+    /**
+     * @brief 
+     * 
+     * @return uint8_t 
+     */
+    static uint8_t readPinPot()
     {
         return analogRead(POTENCIOMETER_PIN);
     }
 
-    static uint8_t get_voltage()
+
+    /**
+     * @brief Get the Voltage object
+     * 
+     * @return uint8_t 
+     */
+    static uint8_t getVoltagePot()
     {
-        return (SOURCE_VOLTAGE/MAX_VALUE_ADC)*read_pot_sensor();
+        return (SOURCE_VOLTAGE/MAX_VALUE_ADC)*readPinPot();
     }
 };
 
 #endif
+
