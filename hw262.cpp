@@ -4,12 +4,11 @@
 
 Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
 
-/**
- * @brief 
- * 
- * @param nameCurrentTempSensor 
- */
-Hw262::Hw262(String nameCurrentTempSensor) : nameCurrentTempSensor(nameCurrentTempSensor){}
+
+void Hw262::begin(uint8_t sensorPrecision)
+{
+  this.sensorPrecision = sensorPrecision;
+}
 
 
 /**
