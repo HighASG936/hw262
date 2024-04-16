@@ -2,6 +2,7 @@
 #include "lm35.h"
 
 uint16_t Lm35::precisionFactor = 1;
+uint8_t Lm35::precision;
 
 
 /**
