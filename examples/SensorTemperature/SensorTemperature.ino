@@ -17,7 +17,7 @@ void setup()
 void loop()
 {
     currentTime = millis();
-    uint32_t temperature = HW262.tempSensor.measureCentigrads();
+    float temperature = HW262.tempSensor.measureCentigrads()/100;
     Serial.println(String(temperature)+" °C");
     while(elapsedTime<intervalTime)
     {   
