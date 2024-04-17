@@ -24,9 +24,9 @@ class Pot
     /**
      * @brief Get the Voltage object
      * 
-     * @return uint8_t 
+     * @return uint32_t 
      */
-    static uint8_t getVoltagePot()
+    static uint32_t getVoltagePot()
     {
         return (SOURCE_VOLTAGE/MAX_VALUE_ADC)*readPinPot();
     }
