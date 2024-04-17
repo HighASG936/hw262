@@ -251,11 +251,7 @@ void display4Digits::writeThousands(uint16_t NumerToWrite)
 
 /***************************************************************
 @Name:   Write_Number
-@Brief:  Write Float Number on Display.
-         For instance,if you set:
-            Write_Number(235)
-     
-         Then will displyed 23.50                
+@Brief:  Write Integer Number on Display.            
 @Params: int UserNumber ->  Set number-to-write (0-9999)
 @Return: N/A
 @Status: RELEASED
@@ -269,3 +265,4 @@ void display4Digits::writeNumber(uint16_t NumerToWrite)
   writeHundreds(NumerToWrite);
   writeThousands(NumerToWrite);
 }
+

@@ -19,7 +19,7 @@ class display4Digits
         static void writeTens(uint16_t UserNumber);
         static void writeHundreds(uint16_t UserNumber);
         static void writeThousands(uint16_t UserNumber);
-        static void writeDigit(uint16_t UserNumber, bool a, bool b, bool c, bool d, bool dot);
+        static void writeDigit(uint16_t UserNumber, bool a=false, bool b=false, bool c=false, bool d=false, bool dot=false);
         static void sendBitsOfDigit(uint16_t NumberToWrite);
 
     public:
@@ -29,3 +29,4 @@ class display4Digits
 };
 
 #endif
+
