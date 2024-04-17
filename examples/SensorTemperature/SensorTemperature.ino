@@ -16,7 +16,7 @@ void setup()
 void loop()
 {
     currentTime = millis();
-    uint32_t voltage = HW262.getVoltagePot();
+    uint32_t voltage = HW262.tempSensor.measureCentigrads();
 
     while(elapsedTime<intervalTime)
     {   
