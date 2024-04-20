@@ -1,53 +1,9 @@
 #include "display4Digits.h"
 
-
-/*
-
-  7-segment display:
-  Followed draw describe the position of each segment into every array
-
-           __________
-          |____7_____|
-         _             _
-        | |           | |
-       2| |           | |6
-        |_|           |_|                           
-            __________
-           |____1_____|
-         _             _
-        | |           | |
-       3| |           | |5
-        |_|           |_|     
-            __________     _
-           |_____4____|   |_| 0                           
-
-*/
-bool display4Digits::NUMBERS[14][7]={ 
-                                    {1,0,0,0,0,0,0}, //0 
-                                    {1,1,1,1,0,0,1}, //1
-                                    {0,1,0,0,1,0,0}, //2
-                                    {0,1,1,0,0,0,0}, //3 
-                                    {0,0,1,1,0,0,1}, //4
-                                    {0,0,1,0,0,1,0}, //5
-                                    {0,0,0,0,0,1,0}, //6
-                                    {1,1,1,1,0,0,0}, //7
-                                    {0,0,0,0,0,0,0}, //8
-                                    {0,0,1,1,0,0,0}, //9                         
-                                    {0,0,0,1,0,0,0}, //A
-                                    {0,0,0,0,0,1,1}, //b
-                                  //{1,0,0,0,1,1,0}, //C
-                                  //{0,1,0,0,0,0,1}, //d
-                                  //{0,0,0,0,1,1,0}, //E
-                                    {0,0,0,1,1,1,0}, //F
-                                  //{0,0,1,0,0,0,0}, //g
-                                  //{1,1,1,0,1,1,0}, //H
-                                  //{1,1,1,1,0,0,1}, //I
-                                  //{1,1,1,1,0,0,1}, //J
-                                  //{1,0,0,0,1,1,1}, //L
-                                    {0,1,0,0,0,1,1}  //o
-                                    // TODO: Finish with this
-                                    };
-
+/**
+ * @brief Construct a new display4 Digits::display4 Digits object
+ * 
+ */
 display4Digits::display4Digits()
 {
   pinMode(sftclk, OUTPUT);
@@ -55,42 +11,30 @@ display4Digits::display4Digits()
   pinMode(sdi, OUTPUT);
 }
 
-/***************************************************************
-@Name:   Clk
-@Brief:  Pulse of Clock      
-@Params: N/A
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ */
 void display4Digits::Clk()
 {
   digitalWrite(sftclk,LOW);
   digitalWrite(sftclk,HIGH);
 }
 
-/***************************************************************
-@Name:   Latch
-@Brief:  Pulse of Latch      
-@Params: N/A
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ */
 void display4Digits::Latch()
 {
   digitalWrite(lchclk,LOW);
   digitalWrite(lchclk,HIGH);
 }
 
-/***************************************************************
-@Name:   clearDisplay
-@Brief:  Erease all numbers on display      
-@Params: N/A
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ */
 void display4Digits::clearDisplay()
 { 
   for(int i=0;i<NUMBER_OUTPUTS_BOTH_MC74HC595A;i++)
@@ -101,28 +45,22 @@ void display4Digits::clearDisplay()
   Latch();
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param dot 
+ */
 void display4Digits::sendBitToDotting(bool dot)
 {
   digitalWrite(sdi,!dot);
   Clk();
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param UserNumber 
+ */
 void display4Digits::sendBitsOfDigit(uint16_t UserNumber)
 {
   for(uint8_t i=0;i<7;i++)
@@ -132,14 +70,10 @@ void display4Digits::sendBitsOfDigit(uint16_t UserNumber)
   }
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ */
 void display4Digits::sendShifterBits()
 {
   //Shift from QE to QH bits (see schematic)
@@ -150,14 +84,11 @@ void display4Digits::sendShifterBits()
   }
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param positions 
+ */
 void display4Digits::displayDigit(bool positions[])
 {
   for(uint8_t i=0;i<NUMBER_DIGITS;i++)
@@ -191,14 +122,11 @@ void display4Digits::writeDigit(uint16_t UserNumber, bool a, bool b, bool c, boo
   Latch(); 
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param UserNumber 
+ */
 void display4Digits::writeUnits(uint16_t UserNumber)
 {
   uint32_t units;
@@ -210,14 +138,11 @@ void display4Digits::writeUnits(uint16_t UserNumber)
   }
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param UserNumber 
+ */
 void display4Digits::writeTens(uint16_t UserNumber)
 {
   uint32_t units, tens;
@@ -232,14 +157,11 @@ void display4Digits::writeTens(uint16_t UserNumber)
   }
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param NumerToWrite 
+ */
 void display4Digits::writeHundreds(uint16_t NumerToWrite)
 {
   uint32_t units, tens, hundreds;
@@ -255,14 +177,11 @@ void display4Digits::writeHundreds(uint16_t NumerToWrite)
   }  
 }
 
-/***************************************************************
-@Name:   
-@Brief:  
-@Params: 
-@Return: N/A
-@Status: RELEASED
-@Author: A. Siordia
- ***************************************************************/
+/**
+ * @brief 
+ * 
+ * @param NumerToWrite 
+ */
 void display4Digits::writeThousands(uint16_t NumerToWrite)
 {
   uint32_t units, tens, hundreds, thousands;

@@ -4,7 +4,11 @@
 
 Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
 
-
+/**
+ * @brief 
+ * 
+ * @param sensorPrecision 
+ */
 void Hw262::begin(uint8_t sensorPrecision)
 {
   Led();

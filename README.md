@@ -14,3 +14,5 @@ This first version is lm35-compatible only.
 
 Schematic:
 ![schm](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/548a8989-d12f-425e-b720-2dd60f903427)
+
+# How to use library
