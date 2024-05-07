@@ -8,7 +8,8 @@
 #include "switches.h"
 #include "display4Digits.h"
 #include "lm35.h"
-#include "ds18.h"
+#include <OneWire.h>
+#include <DallasTemperature.h>
 #include "bluetooth.h"
 #include "constants.h"
 
@@ -28,6 +29,8 @@ class Hw262 :   public Led,
 
     public:
         static void begin(uint8_t sensorPrecision=DEFAULT_PRECISION);
+        static OneWire oneWireObjeto;
+        static DallasTemperature ds18;
         static Lm35 tempSensor;
         static void resetAllLeds();
 };
