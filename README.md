@@ -104,16 +104,44 @@ By default, hw262 library initialize the board with LM35's features. Here is an 
 ```
 Whether you omit */100* at last line and - for instance - real temperature is 23°C you will obtain 2300 as output.
 
+
+## DS18 Sensor
+After initializing the library, you can automatically utilize the sensor by adding this line to your code:
+
+```c++
+uint32_t temp = HW262.ds18.getTemp();
+```
+
+Whether you need to customize features of the ```HW262.ds18``` sensor, you can modify the sensor object using the inherited features from```DallasTemperature.h```.([link](https://github.com/jmchiappa/DallasTemperature) to library docs) 
+
+
 ## Future Features
 
-1. Availibity to:
-  + Bluetooth
-  + Temperature Sensor DS18
-  + Infrared receiver
-  + Voice module
-  + APC220 wireless module
+### Gitmoji code for this section
 
-2. Enable write letters on display
-3. Enable write float numbers
-4. Custom display characters
+🏷️: on hold
+
+✅: completed
+
+🚧 working on
+
+
+### List
+
+  🏷️ Bluetooth
+
+  ✅ Temperature Sensor DS18
+  
+  🏷️ Infrared receiver
+  
+  🏷️ Voice module
+  
+  🏷️ APC220 wireless module
+
+:construction: Enable write letters on display
+
+:construction: Enable write float numbers
+
+:construction: Custom display characters
+
 
