@@ -1,10 +1,9 @@
 
 #include "hw262.h"
 
-OneWire Hw262::oneWireObjeto(DS18_SENSOR_PIN);
-DallasTemperature Hw262::ds18(&oneWireObjeto);
+Ds18 Hw262::ds18;
 
-Lm35 Hw262::tempSensor(DEFAULT_PRECISION);
+Lm35 Hw262::lm35(DEFAULT_PRECISION);
 
 /**
  * @brief 
@@ -17,7 +16,7 @@ void Hw262::begin(uint8_t sensorPrecision)
   Buzzer();
   display4Digits();
   Switches();
-  tempSensor.setPrecision(sensorPrecision);
+  lm35.setPrecision(sensorPrecision);
   ds18.begin();
 }
 

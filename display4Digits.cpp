@@ -1,5 +1,33 @@
 #include "display4Digits.h"
 
+
+bool display4Digits::Numbers[22][7]={ 
+    {1,0,0,0,0,0,0}, //0 
+    {1,1,1,1,0,0,1}, //1
+    {0,1,0,0,1,0,0}, //2
+    {0,1,1,0,0,0,0}, //3 
+    {0,0,1,1,0,0,1}, //4
+    {0,0,1,0,0,1,0}, //5
+    {0,0,0,0,0,1,0}, //6
+    {1,1,1,1,0,0,0}, //7
+    {0,0,0,0,0,0,0}, //8
+    {0,0,1,1,0,0,0}, //9
+    {0,0,0,1,0,0,0}, //A
+    {0,0,0,0,0,1,1}, //b
+    {1,0,0,0,1,1,0}, //C
+    {0,1,0,0,0,0,1}, //d
+    {0,0,0,0,1,1,0}, //E
+    {0,0,0,1,1,1,0}, //F
+    {0,0,1,0,0,0,0}, //g
+    {1,1,1,0,1,1,0}, //H
+    {1,1,1,1,0,0,1}, //I
+    {1,1,1,1,0,0,1}, //J
+    {1,0,0,0,1,1,1}, //L
+    {0,1,0,0,0,1,1}  //o
+    // TODO: Finish with this
+    };
+
+
 /**
  * @brief Construct a new display4 Digits::display4 Digits object
  * 
@@ -65,7 +93,7 @@ void display4Digits::sendBitsOfDigit(uint16_t UserNumber)
 {
   for(uint8_t i=0;i<7;i++)
   {
-    digitalWrite(sdi,NUMBERS[UserNumber][i]);
+    digitalWrite(sdi,Numbers[UserNumber][i]);
     Clk();
   }
 }
