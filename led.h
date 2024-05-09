@@ -7,8 +7,6 @@
 class Led
 {      
     public:
-        static LedPinNumber Pinesled[4];
-
         Led();        
         static void ledOn(LedPinNumber led_pin);
         static void ledOff(LedPinNumber led_pin);

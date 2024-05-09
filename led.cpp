@@ -1,6 +1,5 @@
 #include "led.h"
 
-LedPinNumber Led::Pinesled[4]={d1, d2, d3, d4};
 
 /**
  * @brief Construct a new Led:: Led object
@@ -8,44 +7,44 @@ LedPinNumber Led::Pinesled[4]={d1, d2, d3, d4};
  */
 Led::Led()
 {
-    for(uint8_t i=0; i<sizeof(Pinesled); i++)
+    for(uint8_t pinLed=d4; pinLed<=d1; pinLed++)
     {
-        pinMode(Pinesled[i], OUTPUT);
-        ledOff(Pinesled[i]);
+        pinMode(pinLed, OUTPUT);
+        ledOff(pinLed);
     }
 }
 
-
+  
 /**
  * @brief 
  * 
  * @param led_pin 
  */
-void Led::ledOn(LedPinNumber led_pin)
+void Led::ledOn(LedPinNumber pinLed)
 {
-    digitalWrite(led_pin, LOW);
+    digitalWrite(pinLed, LOW);
 }
 
 
 /**
  * @brief 
  * 
- * @param led_pin 
+ * @param pinLed 
  */
-void Led::ledOff(LedPinNumber led_pin)
+void Led::ledOff(LedPinNumber pinLed)
 {
-    digitalWrite(led_pin, HIGH);
+    digitalWrite(pinLed, HIGH);
 }
 
 
 /**
  * @brief 
  * 
- * @param led_pin 
+ * @param pinLed 
  */
-void Led::ledToggle(LedPinNumber led_pin)
+void Led::ledToggle(LedPinNumber pinLed)
 {
-    bool state = !digitalRead(led_pin);
-    digitalWrite(led_pin, state);
+    bool state = !digitalRead(pinLed);
+    digitalWrite(pinLed, state);
 }
 

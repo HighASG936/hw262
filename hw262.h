@@ -9,8 +9,6 @@
 #include "display4Digits.h"
 #include "ds18.h"
 #include "lm35.h"
-#include <OneWire.h>
-#include <DallasTemperature.h>
 #include "bluetooth.h"
 #include "constants.h"
 

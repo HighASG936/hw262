@@ -49,6 +49,6 @@ uint16_t Hw262::readVoltageA5()
  */
 void Hw262::resetAllLeds()
 {
-  for(uint8_t i=0; i<sizeof(Pinesled);i++) ledOff(Pinesled[i]);
+  for(uint8_t pinLed=d4; pinLed<=d1; pinLed++) ledOff(pinLed);
 }
 
