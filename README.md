@@ -128,7 +128,7 @@ Whether you need to customize features of the ```HW262.ds18``` sensor, you can m
 
 ### List
 
-  🏷️ Bluetooth
+  ✅ Bluetooth
 
   ✅ Temperature Sensor DS18
   
