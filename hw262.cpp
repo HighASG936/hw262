@@ -1,8 +1,8 @@
 
 #include "hw262.h"
 
-Ds18 Hw262::ds18;
 
+Ds18 Hw262::ds18;
 Lm35 Hw262::lm35(DEFAULT_PRECISION);
 
 /**
@@ -10,8 +10,9 @@ Lm35 Hw262::lm35(DEFAULT_PRECISION);
  * 
  * @param sensorPrecision 
  */
-void Hw262::begin(uint8_t sensorPrecision)
+void Hw262::begin(uint8_t sensorPrecision, uint32_t baudRate)
 {
+  Serial.begin(SERIAL_BAUD_RATE);
   Led();
   Buzzer();
   display4Digits();
