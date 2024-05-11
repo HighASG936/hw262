@@ -115,6 +115,29 @@ uint32_t temp = HW262.ds18.getTemp();
 Whether you need to customize features of the ```HW262.ds18``` sensor, you can modify the sensor object using the inherited features from```DallasTemperature.h```.([link](https://github.com/jmchiappa/DallasTemperature) to library docs) 
 
 
+## Bluetooth & Serial port
+
+Here is a simple example to use bluetooth:
+```c++
+#include "hw262.h"
+
+uint32_t wTime = 1500:
+
+void setup() 
+{
+  HW262.begin();
+  HW262.clearDisplay();
+}
+
+void loop()
+{  
+  String temp = String(HW262.ds18.getTemp())+"°C";
+  Serial.println(temp);
+  delay(wTime);
+}
+```
+Notice that you only have to use the Serial library from the default Arduino libraries. The hw262 library sets the serial port using HW262.begin() before it is used. You can connect any sensor with a UART port like this:
+
 ## Future Features
 
 ### Gitmoji code for this section
