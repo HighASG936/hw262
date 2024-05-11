@@ -138,6 +138,11 @@ void loop()
 ```
 Notice that you only have to use the Serial library from the default Arduino libraries. The hw262 library sets the serial port using HW262.begin() before it is used. You can connect any sensor with a UART port like this:
 
+<img src="https://github.com/HighASG936/hw262/blob/main/info/serial_port.jpg" />
+<img src="https://content.instructables.com/FSV/M8Q3/HX6ARQI3/FSVM8Q3HX6ARQI3.png" width="450" height="150" />
+
+
+
 ## Future Features
 
 ### Gitmoji code for this section
