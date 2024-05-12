@@ -4,6 +4,8 @@
 
 Ds18 Hw262::ds18;
 Lm35 Hw262::lm35(DEFAULT_PRECISION);
+Display Hw262::display;
+
 
 /**
  * @brief 
@@ -13,12 +15,14 @@ Lm35 Hw262::lm35(DEFAULT_PRECISION);
 void Hw262::begin(uint8_t sensorPrecision, uint32_t baudRate)
 {
   Serial.begin(SERIAL_BAUD_RATE);
+  delay(100);
   Led();
+  resetAllLeds();
   Buzzer();
-  display4Digits();
   Switches();
   lm35.setPrecision(sensorPrecision);
   ds18.begin();
+  
 }
 
 
@@ -50,6 +54,6 @@ uint16_t Hw262::readVoltageA5()
  */
 void Hw262::resetAllLeds()
 {
-  for(uint8_t pinLed=d4; pinLed<=d1; pinLed++) ledOff(pinLed);
+  for(uint8_t pinLed=D4_PIN; pinLed<=D1_PIN; pinLed++) ledOff(pinLed);
 }
 

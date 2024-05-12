@@ -7,7 +7,7 @@
  */
 Led::Led()
 {
-    for(uint8_t pinLed=d4; pinLed<=d1; pinLed++)
+    for(uint8_t pinLed=D4_PIN; pinLed<=D1_PIN; pinLed++)
     {
         pinMode(pinLed, OUTPUT);
         ledOff(pinLed);

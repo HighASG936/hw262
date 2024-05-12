@@ -1,6 +1,16 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#define DEFAULT_PRECISION 1
+#define SERIAL_BAUD_RATE 9600
+
+#define MIN_DISPLAY_NUMBER -1000
+#define MAX_DISPLAY_NUMBER 10000
+
+#define MESSAGE_INVALID_NUMBER "Invalid number"
+#define MESSAGE_INVALID_OFFSET "Invalid offset"
+#define MESSAGE_INVALID_LENGHT_TEXT "Invalid length text"
+
 #define SOURCE_VOLTAGE 5000  /* mV */
 #define MAX_VALUE_ADC 0x3FF
 

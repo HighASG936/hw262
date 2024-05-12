@@ -6,10 +6,7 @@
  */
 Switches::Switches()
 {
-    for(uint8_t i; i<sizeof(Switches); i++)
-    {
-        pinMode(switchesArray[i], INPUT);
-    }
+    for(uint8_t pin=S1_PIN; pin<S3_PIN; pin++) pinMode(pin, INPUT);
 }
 
 
@@ -20,7 +17,7 @@ Switches::Switches()
  * @return true 
  * @return false 
  */
-bool Switches::IsPressed(SwitchPinNumber switch_pin)
+bool Switches::IsPressed(SwitchPinNumber switchPin)
 {
-    return !digitalRead(switch_pin);
+    return !digitalRead(switchPin);
 }

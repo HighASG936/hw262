@@ -265,9 +265,9 @@ void loop()
 {  
   // delay(1000);
 
-  String temp = String(HW262.ds18.getTemp())+"°C";
-  Serial.println(temp);
-  delay(1500);
+  // String temp = String(HW262.ds18.getTemp())+"°C";
+  //Serial.println(temp);
+  // delay(1500);
   // for(uint32_t j=0;j<=500;j++) write(temp);
   // write(degrees, 1);
   // write(C, 0);
