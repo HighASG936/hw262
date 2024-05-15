@@ -24,5 +24,8 @@
 
 #define LM35_SENSOR_GAIN 10     /* mV/°C */
 
+#define NUMBER_DIGITS_ON_DISPLAY 4
+#define MAX_DISPLAY_POSITION 3
+
 #endif
 
