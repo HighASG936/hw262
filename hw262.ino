@@ -5,11 +5,12 @@ float temp;
 
 void setup() {
   HW262.begin();
-  temp = HW262.ds18.getTemp();
   HW262.display.clear();
 }
 
 void loop() {  
-  HW262.display.write( (float) temp );
+  temp = HW262.ds18.getTemp();  
+  Serial.println(temp);
+  for(uint32_t i=0; i<1000; i++) HW262.display.write( (float).015 );
 }
 

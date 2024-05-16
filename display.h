@@ -76,7 +76,7 @@
 #define DISPLAY_8       0x01
 #define DISPLAY_9       0x09
 
-#define IS_VALID_NUMBER(number) (number < MIN_DISPLAY_NUMBER || number > MAX_DISPLAY_NUMBER)
+#define IS_NOT_VALID_NUMBER(number) (number < MIN_DISPLAY_NUMBER || number > MAX_DISPLAY_NUMBER)
 
 class Display
 {    

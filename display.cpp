@@ -153,7 +153,7 @@ void Display::writeInteger(int16_t number, bool left_zeros, uint8_t offset)
     return;
   }
 
-  if(IS_VALID_NUMBER(number))
+  if(IS_NOT_VALID_NUMBER(number))
   {
     Serial.println(MESSAGE_INVALID_NUMBER);
     delete[] n;
@@ -206,9 +206,9 @@ void Display::write(float number)
   char byteDigit;
   uint8_t digitPosition;
   uint8_t dotPosition;
-  int16_t numberMils;
+  int32_t numberMils;
 
-  if(IS_VALID_NUMBER(number))
+  if(IS_NOT_VALID_NUMBER(number))
   {
     Serial.println(MESSAGE_INVALID_NUMBER);
     delete[] numberDigits;
@@ -216,16 +216,15 @@ void Display::write(float number)
   }
 
   dotPosition = getDotPosition(number);
-  numberMils = (int16_t) number*round(pow(10, dotPosition));
+  numberMils = number*round(pow(10, dotPosition));
 
   strcpy(numberDigits, convertIntToBytes(numberMils));
 
   for(uint8_t i=0; i<NUMBER_DIGITS_ON_DISPLAY;i++)
   {
     digitPosition = MAX_DISPLAY_POSITION-i;
-    byteDigit = (i != dotPosition) ? numberDigits[i] : (numberDigits[i] | DISPLAY_DOT);
+    byteDigit = (i+1 != dotPosition) ? numberDigits[i] : (numberDigits[i] - 0x01);
 
-    Serial.println(byteDigit, HEX);
     ic.SendByte(byteDigit);  
     ic.SendByte(0x10 << digitPosition );
     ic.End();
