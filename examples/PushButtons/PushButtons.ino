@@ -5,15 +5,15 @@ void setup()
 {
     Serial.begin(115200);
     HW262.begin();
-    HW262.clearDisplay(); // Clear display    
+    HW262.display.clear(); // Clear display    
 }
 
 
 void loop()
 {
-    if(HW262.IsPressed(s1)) HW262.ledToggle(d1);
-    if(HW262.IsPressed(s2)) HW262.ledToggle(d2);
-    if(HW262.IsPressed(s3)) HW262.ledToggle(d3);
+    if(HW262.IsPressed(S1_PIN)) HW262.ledToggle(D1_PIN);
+    if(HW262.IsPressed(S2_PIN)) HW262.ledToggle(D2_PIN);
+    if(HW262.IsPressed(S3_PIN)) HW262.ledToggle(D3_PIN);
     delay(200);
 }
 

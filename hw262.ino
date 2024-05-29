@@ -1,20 +1,28 @@
 
 #include "hw262.h"
 
-int16_t j=0;
-float temp;
+uint16_t number = 0;
+uint64_t currentTime;
+uint64_t elapsedTime = 0;
+uint64_t intervalTime = 100;
 
-void setup() {
-  HW262.begin();
-  HW262.display.clear();
+void setup()
+{
+    HW262.begin();
+    HW262.display.clear();
 }
 
-void loop() {  
-  //temp = HW262.ds18.getTemp();  
-  Serial.println(j);
-  for(uint32_t i=0; i<100; i++) HW262.display.write(j);
-  HW262.display.clear();
-  if(j>1000) j=0;
-  j++;
+
+void loop()
+{
+    currentTime = millis();
+    int16_t voltage = HW262.getVoltagePot();
+
+    while(elapsedTime<intervalTime)
+    {   
+        elapsedTime = millis()-currentTime;
+        HW262.display.write(voltage);
+    }
+    elapsedTime = 0;
 }
 

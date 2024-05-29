@@ -5,7 +5,7 @@ void setup()
 {
     Serial.begin(115200);
     HW262.begin();
-    HW262.clearDisplay(); // Clear display    
+    HW262.display.clear();
 }
 
 
