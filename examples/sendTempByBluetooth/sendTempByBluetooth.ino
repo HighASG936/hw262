@@ -1,11 +1,11 @@
-#include "hw262.h"
+#include <hw262.h>
 
 uint32_t wTime = 1500:
 
 void setup() 
 {
   HW262.begin();
-  HW262.clearDisplay();
+  HW262.display.clear();
 }
 
 void loop()

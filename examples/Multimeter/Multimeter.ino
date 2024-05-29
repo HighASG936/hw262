@@ -1,5 +1,5 @@
 
-#include "hw262.h"
+#include <hw262.h>
 
 uint16_t number = 0;
 uint64_t currentTime;
@@ -9,19 +9,19 @@ uint64_t intervalTime = 100;
 void setup()
 {
     HW262.begin();
-    HW262.clearDisplay();
+    HW262.display.clear();
 }
 
 
 void loop()
 {
     currentTime = millis();
-    uint32_t voltage = HW262.getVoltagePot();
+    int16_t voltage = HW262.getVoltagePot();
 
     while(elapsedTime<intervalTime)
     {   
         elapsedTime = millis()-currentTime;
-        HW262.writeNumber(voltage);
+        HW262.display.write(voltage);
     }
     elapsedTime = 0;
 }
