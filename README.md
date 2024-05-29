@@ -1,3 +1,4 @@
+
 # hw262
 Library to use HW262 shield using on Arduino 
 
@@ -171,5 +172,3 @@ Notice that you only have to use the Serial library from the default Arduino lib
 :construction: Enable write float numbers
 
 :construction: Custom display characters
-
-
