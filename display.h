@@ -83,17 +83,17 @@ class Display
     protected:
         static const byte* numbers[10];
         static byte convertCharToSegments(char c);
-        static char* convertIntToBytes(int16_t number, bool left_zeros=false);
+        static char* convertIntToBytes(const int16_t number, bool left_zeros=false);
         static Mc74hc595a ic;     
         static const byte hyphen, minus, degrees, dot, Blank;
-        static uint8_t getDotPosition(float number);
+        static uint8_t getDotPosition(const float number);
 
     public:
         static void write(const char* text);        
-        static void write(int16_t number, bool left_zeros=false, uint8_t offset=0);
-        static void write(float number);
+        static void write(const int16_t number, bool left_zeros=false, uint8_t offset=0);
+        static void write(const float number);
         static void write(byte symbol, uint8_t position);
-        static void writeInteger(int16_t number, bool left_zeros=false, uint8_t offset=0);
+        static void writeInteger(const int16_t number, bool left_zeros=false, uint8_t offset=0);
         static void clear();
 };
 

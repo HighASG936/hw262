@@ -79,7 +79,7 @@ void Display::clear()
  * @param left_zeros 
  * @return char* 
  */
-char* Display::convertIntToBytes(int16_t number, bool left_zeros)
+char* Display::convertIntToBytes(const int16_t number, bool left_zeros)
 {
   uint32_t factor;
   uint8_t digit;
@@ -92,7 +92,7 @@ char* Display::convertIntToBytes(int16_t number, bool left_zeros)
   for(int8_t i=3; i>-1; i--)
   {
     position = (MAX_DISPLAY_POSITION-i);
-    factor = (i>1) ? (pow(10, i)+1) : pow(10, i); // correction for pow method 
+    factor = (i>1) ? round(pow(10, i)) : pow(10, i); // correction for pow method 
     digit = absNumber / factor;  
     absNumber -= digit*factor;
     if(digit != 0 && startNumber == false)
@@ -142,7 +142,7 @@ void Display::write(const char* text)
  * @param left_zeros 
  * @param offset 
  */
-void Display::writeInteger(int16_t number, bool left_zeros, uint8_t offset)
+void Display::writeInteger(const int16_t number, bool left_zeros, uint8_t offset)
 {
   char* n = new char[NUMBER_DIGITS_ON_DISPLAY];
   uint8_t position;
@@ -179,31 +179,32 @@ void Display::writeInteger(int16_t number, bool left_zeros, uint8_t offset)
  * @param left_zeros 
  * @param offset 
  */
-void Display::write(int16_t number, bool left_zeros, uint8_t offset)
+void Display::write(const int16_t number, bool left_zeros, uint8_t offset)
 {
   writeInteger(number, left_zeros, offset);
 }
 
 
-
-uint8_t Display::getDotPosition(float number)
+/*
+uint8_t Display::getDotPosition(const float number)
 {
   if(number < 10) return MAX_DISPLAY_POSITION;
   else if(number < 100) return 2;
   else if(number < 1000) return 1;
   else return 0;
 }
-
+*/
 
 /**
  * @brief 
  * 
  * @param number 
  */
-void Display::write(float number)
+ /*
+void Display::write(const float number)
 {
-  char* numberDigits = new char[NUMBER_DIGITS_ON_DISPLAY];
-  char byteDigit;
+  byte* numberDigits = new byte[NUMBER_DIGITS_ON_DISPLAY];
+  byte byteDigit;
   uint8_t digitPosition;
   uint8_t dotPosition;
   int32_t numberMils;
@@ -220,18 +221,18 @@ void Display::write(float number)
 
   strcpy(numberDigits, convertIntToBytes(numberMils));
 
-  for(uint8_t i=0; i<NUMBER_DIGITS_ON_DISPLAY;i++)
+  for(uint8_t i=0; i<NUMBER_DIGITS_ON_DISPLAY; i++)
   {
     digitPosition = MAX_DISPLAY_POSITION-i;
-    byteDigit = (i+1 != dotPosition) ? numberDigits[i] : (numberDigits[i] - 0x01);
+    byteDigit = (i != dotPosition) ? numberDigits[i] : (numberDigits[i] - 1);
 
-    ic.SendByte(byteDigit);  
-    ic.SendByte(0x10 << digitPosition );
+    ic.SendByte(byteDigit);
+    ic.SendByte((byte) (0x10 << digitPosition) );
     ic.End();
   }
   delete[] numberDigits;
 }
-
+*/
 
 /**
  * @brief 
