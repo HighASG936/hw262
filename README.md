@@ -40,6 +40,7 @@ shield object by HW262:
 
 void setup(){
   HW262.begin();
+ HW262.display.clear();
 }
 
 void loop(){
@@ -54,9 +55,9 @@ how to use it:
 
 ```c++
 
-HW262.ledOn(d1);     // Turn on d1
-HW262.ledOff(d1);    // Turn off d1
-HW262.ledToggle(d3); // Toggle state of d3
+HW262.ledOn(D1_PIN);     // Turn on d1
+HW262.ledOff(D1_PIN);    // Turn off d1
+HW262.ledToggle(D3_PIN); // Toggle state of d3
 
 ```
 
@@ -84,7 +85,7 @@ To get level voltage on A0 by potenciometer R10, use whatever those methods:
 ## Switches
 Hw262 includes 3 independent switches named s1, s2, s3.But... how to know it was pressed?
 ```c++
-  bool switchState = IsPressed(s1);    // Read state of switch 1
+  bool switchState = IsPressed(S1_PIN);    // Read state of switch 1
 
   if(switchState)
   {
@@ -120,14 +121,14 @@ Whether you need to customize features of the ```HW262.ds18``` sensor, you can m
 
 Here is a simple example to use bluetooth:
 ```c++
-#include "hw262.h"
+#include <hw262.h>
 
 uint32_t wTime = 1500:
 
 void setup() 
 {
   HW262.begin();
-  HW262.clearDisplay();
+   HW262.display.clear();
 }
 
 void loop()
@@ -152,7 +153,7 @@ Notice that you only have to use the Serial library from the default Arduino lib
 
 ✅: completed
 
-🚧 working on
+🚧: working on
 
 
 ### List
