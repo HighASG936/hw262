@@ -1,3 +1,4 @@
 {
-    "board": "arduino:avr:uno"
+    "board": "arduino:avr:uno",
+    "sketch": "hw262.ino"
 }

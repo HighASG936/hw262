@@ -1,3 +1,4 @@
+
 # hw262
 Library to use HW262 shield using on Arduino 
 
@@ -162,14 +163,12 @@ Notice that you only have to use the Serial library from the default Arduino lib
   
   🚧 Infrared receiver
   
-  ✅ Voice module
+  🚧 Voice module
   
-  ✅ APC220 wireless module
+  🚧 APC220 wireless module
 
 :construction: Enable write letters on display
 
 :construction: Enable write float numbers
 
 :construction: Custom display characters
-
-
