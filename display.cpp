@@ -247,3 +247,49 @@ void Display::write(byte symbol, uint8_t position)
   ic.End();
 }
 
+/**
+ * @brief 
+ * 
+ * @param number 
+ * @param position 
+ */
+void Display::writeOne(uint8_t number, uint8_t position)
+{
+  ic.SendByte(numbers[number]);  
+  ic.SendByte(0x10 << position);
+  ic.End();
+}
+
+/**
+ * @brief 
+ * 
+ * @param number 
+ */
+void Display::writeNumber(uint16_t number)
+{
+  if (number < 10000)
+  {
+    uint8_t temp1 = (uint8_t)(number / 1000);
+    uint8_t position = 3;
+    writeOne(temp1, position--); // thousands
+    uint8_t temp2 = ( (uint8_t)((number - (temp1 * 1000)) / 100) );
+    writeOne(temp2, position--); // hundreds
+    uint8_t temp3 = ( (uint8_t)((number - (temp1 * 1000) - (temp2 * 100)) / 10) );
+    writeOne(temp3, position--); // dozens
+    uint8_t temp4 = ( (uint8_t)((number - (temp1 * 1000) - (temp2 * 100) - (temp3 * 10))) );
+    writeOne(temp4, position); // units
+  }
+}
+
+/**
+ * @brief 
+ * 
+ * @param position 
+ */
+void Display::writeDot(uint8_t position)
+{
+  ic.SendByte(DISPLAY_DOT);  
+  ic.SendByte(0x10 << position);
+  ic.End();
+}
+
