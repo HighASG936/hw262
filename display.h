@@ -95,6 +95,9 @@ class Display
         static void write(byte symbol, uint8_t position);
         static void writeInteger(const int16_t number, bool left_zeros=false, uint8_t offset=0);
         static void clear();
+        static void writeOne(uint8_t number, uint8_t position);
+        static void writeNumber(uint16_t number);
+        static void writeDot(uint8_t position);
 };
 
 #endif
