@@ -20,9 +20,9 @@ const byte* Display::numbers[10]
 
 
 /**
- * @brief 
- * 
- * @param c 
+ * @brief Return a byte that can be showed into 
+ * 7-segments-display-4-digits from a char
+ * @param c character to convert 
  * @return byte 
  */
 byte Display::convertCharToSegments(char c)
@@ -55,8 +55,7 @@ byte Display::convertCharToSegments(char c)
 
 
 /**
-* @brief
-*
+* @brief Clear display
 */
 void Display::clear()
 {
@@ -73,13 +72,12 @@ void Display::clear()
 
 
 /**
- * @brief 
- * 
- * @param number 
- * @param left_zeros 
+ * @brief Return a byte from an int16_t number
+ * @param number number to convert
+ * @param leading_zeros number of leading zeros
  * @return char* 
  */
-char* Display::convertIntToBytes(const int16_t number, bool left_zeros)
+char* Display::convertIntToBytes(const int16_t number, bool leading_zeros)
 {
   uint32_t factor;
   uint8_t digit;
@@ -101,16 +99,15 @@ char* Display::convertIntToBytes(const int16_t number, bool left_zeros)
       startNumber = true;
     }
     segmentDigit = numbers[digit];
-    charNumber[position] = (startNumber == true || (digit == 0 && i == 0) || left_zeros == true) ?  segmentDigit : DISPLAY_BLANK;
+    charNumber[position] = (startNumber == true || (digit == 0 && i == 0) || leading_zeros == true) ?  segmentDigit : DISPLAY_BLANK;
   }
   return charNumber;
 }
 
 
+/*******************************************************************************/
 /**
- * @brief 
- * 
- * @param text 
+ * @brief Write a const char*\/number\/symbol to display 
  */
 void Display::write(const char* text)
 {
@@ -135,54 +132,20 @@ void Display::write(const char* text)
 }
 
 
-/**
- * @brief 
- * 
- * @param number 
- * @param left_zeros 
- * @param offset 
- */
-void Display::writeInteger(const int16_t number, bool left_zeros, uint8_t offset)
+void Display::write(const int16_t number, bool leading_zeros, uint8_t offset)
 {
-  char* n = new char[NUMBER_DIGITS_ON_DISPLAY];
-  uint8_t position;
-
-  if(offset>MAX_DISPLAY_POSITION)
-  {
-    Serial.println(MESSAGE_INVALID_OFFSET);
-    return;
-  }
-
-  if(IS_NOT_VALID_NUMBER(number))
-  {
-    Serial.println(MESSAGE_INVALID_NUMBER);
-    delete[] n;
-    return;
-  }
-
-  n = convertIntToBytes(number, left_zeros);    
-  for(int i=0; i<NUMBER_DIGITS_ON_DISPLAY;i++)
-  {
-    position = (MAX_DISPLAY_POSITION-i)+offset;
-    ic.SendByte(n[i]);  
-    ic.SendByte(0x10 << position );
-    ic.End();
-  }
-  delete[] n;
+  writeInteger(number, leading_zeros, offset);
 }
 
 
-/**
- * @brief 
- * 
- * @param number 
- * @param left_zeros 
- * @param offset 
- */
-void Display::write(const int16_t number, bool left_zeros, uint8_t offset)
+void Display::write(byte symbol, uint8_t position)
 {
-  writeInteger(number, left_zeros, offset);
+  ic.SendByte(symbol);  
+  ic.SendByte(0x10 << position);
+  ic.End();
 }
+/*******************************************************************************/
+
 
 
 /*
@@ -234,17 +197,41 @@ void Display::write(const float number)
 }
 */
 
+
 /**
  * @brief 
  * 
- * @param symbol 
- * @param position 
+ * @param number 
+ * @param leading_zeros 
+ * @param offset 
  */
-void Display::write(byte symbol, uint8_t position)
+void Display::writeInteger(const int16_t number, bool leading_zeros, uint8_t offset)
 {
-  ic.SendByte(symbol);  
-  ic.SendByte(0x10 << position);
-  ic.End();
+  char* n = new char[NUMBER_DIGITS_ON_DISPLAY];
+  uint8_t position;
+
+  if(offset>MAX_DISPLAY_POSITION)
+  {
+    Serial.println(MESSAGE_INVALID_OFFSET);
+    return;
+  }
+
+  if(IS_NOT_VALID_NUMBER(number))
+  {
+    Serial.println(MESSAGE_INVALID_NUMBER);
+    delete[] n;
+    return;
+  }
+
+  n = convertIntToBytes(number, leading_zeros);    
+  for(int i=0; i<NUMBER_DIGITS_ON_DISPLAY;i++)
+  {
+    position = (MAX_DISPLAY_POSITION-i)+offset;
+    ic.SendByte(n[i]);  
+    ic.SendByte(0x10 << position );
+    ic.End();
+  }
+  delete[] n;
 }
 
 /**

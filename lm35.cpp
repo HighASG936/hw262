@@ -5,11 +5,6 @@ uint16_t Lm35::precisionFactor = 1;
 uint8_t Lm35::precision;
 
 
-/**
- * @brief Construct a new Lm35::Lm35 object
- * 
- * @param precision 
- */
 Lm35::Lm35(uint8_t precision)
 {
   setPrecision(precision);
@@ -21,22 +16,13 @@ Lm35::Lm35(uint8_t precision)
 
 }
 
-/**
- * @brief 
- * 
- * @return uint16_t 
- */
+
 uint16_t Lm35::readLm35Sensor()
 {
   return analogRead(SENSOR_TEMP_PIN);
 }
 
 
-/**
- * @brief 
- * 
- * @return uint16_t 
- */
 uint16_t Lm35::measureCentigrads()
 {
     uint16_t real_temperature = (SOURCE_VOLTAGE/MAX_VALUE_ADC)*readLm35Sensor() * LM35_SENSOR_GAIN;
@@ -45,11 +31,6 @@ uint16_t Lm35::measureCentigrads()
 }
 
 
-/**
- * @brief 
- * 
- * @param newValue 
- */
 void Lm35::setPrecision(uint8_t newValue)
 {
   precision = newValue;
