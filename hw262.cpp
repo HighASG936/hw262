@@ -7,11 +7,6 @@ Lm35 Hw262::lm35(DEFAULT_PRECISION);
 Display Hw262::display;
 
 
-/**
- * @brief 
- * 
- * @param sensorPrecision 
- */
 void Hw262::begin(uint8_t sensorPrecision, uint32_t baudRate)
 {
   Serial.begin(SERIAL_BAUD_RATE);
@@ -27,8 +22,7 @@ void Hw262::begin(uint8_t sensorPrecision, uint32_t baudRate)
 
 
 /**
- * @brief 
- * 
+ * @brief Read ADC channel at pin A5
  * @return uint16_t 
  */
 uint16_t Hw262::readA5()
@@ -37,21 +31,12 @@ uint16_t Hw262::readA5()
 }
 
 
-/**
- * @brief 
- * 
- * @return uint16_t 
- */
 uint16_t Hw262::readVoltageA5()
 {
     return(SOURCE_VOLTAGE/MAX_VALUE_ADC)*readA5();
 }
 
 
-/**
- * @brief 
- * 
- */
 void Hw262::resetAllLeds()
 {
   for(uint8_t pinLed=D4_PIN; pinLed<=D1_PIN; pinLed++) ledOff(pinLed);
