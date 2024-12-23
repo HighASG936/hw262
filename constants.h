@@ -11,8 +11,8 @@
 #define MESSAGE_INVALID_OFFSET "Invalid offset"
 #define MESSAGE_INVALID_LENGHT_TEXT "Invalid length text"
 
-#define SOURCE_VOLTAGE 5000  /* mV */
-#define MAX_VALUE_ADC 0x3FF
+#define SOURCE_VOLTAGE 5000L  /* mV */
+#define MAX_VALUE_ADC 0x3FFL
 
 #define MINIMUN_TEMP 18
 #define MAXIMUM_TEMP 30

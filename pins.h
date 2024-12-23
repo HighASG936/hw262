@@ -1,7 +1,7 @@
 #ifndef PINS_H
 #define PINS_H
 
-#define POTENCIOMETER_PIN A0
+#define POTENTIOMETER_PIN A0
 #define BUZZER_PIN 3
 #define SENSOR_TEMP_PIN A4
 #define DS18_SENSOR_PIN A4
