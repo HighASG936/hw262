@@ -162,7 +162,7 @@ Notice that you only have to use the Serial library from the default Arduino lib
 
   ✅ Temperature Sensor DS18
   
-  🚧 Infrared receiver
+  ✅ Infrared receiver
   
   🚧 Voice module
   
