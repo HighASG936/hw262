@@ -18,12 +18,11 @@
 #define D1_PIN 13
 
 // Switch pins
-#define S1_PIN 15
-#define S2_PIN 16
-#define S3_PIN 17
+#define S1_PIN PIN_A1
+#define S2_PIN PIN_A2
+#define S3_PIN PIN_A3
 
-typedef  uint8_t LedPinNumber;
+typedef uint8_t LedPinNumber;
 typedef uint8_t SwitchPinNumber;
 
 #endif
-
