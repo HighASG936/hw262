@@ -1,0 +1,29 @@
+
+
+{
+    "name": "hw262",
+    "version": "2.0.4",
+    "description": "The Hw262 library provides a seamless interface for utilizing the HW262 shield with Arduino projects. Offering comprehensive functionality and user-friendly methods, this library simplifies the integration of the HW262 shield into your projects.",
+    "keywords": ["HW262", "shield", "Arduino"],
+    "authors": [
+      {
+        "name": "Aurelio Siordia",
+        "email": "jonico.dorico@gmail.com",
+        "maintainer": true
+      }
+    ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/HighASG936/hw262"
+    },
+    "frameworks": ["arduino"],
+    "platforms": ["atmelavr"],
+    "headers": ["hw262.h"],
+    "dependencies": {
+      "OneWireHub": "*",
+      "DallasTemperature": "*",
+      "Mc74hc595a": "*",
+      "IRremote": "*"
+    }
+  }
+  
