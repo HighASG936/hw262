@@ -118,6 +118,7 @@ uint32_t temp = HW262.ds18.getTemp();
 
 Whether you need to customize features of the ```HW262.ds18``` sensor, you can modify the sensor object using the inherited features from```DallasTemperature.h```.([link](https://github.com/jmchiappa/DallasTemperature) to library docs) 
 
+## IR Receptor 
 
 ## Bluetooth & Serial port
 
