@@ -26,7 +26,7 @@ To use the DS18 sensor, make sure that jumper J1 is on the board and connected l
 
 ![ds18](https://github.com/HighASG936/hw262/blob/main/info/ds18_connected.png)
 
-##How connect IR receptor
+## How connect IR receptor
 
 
 ## Schematic
