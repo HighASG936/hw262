@@ -7,7 +7,7 @@ Library to use HW262 shield using on Arduino
 ![devices](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/c9adf9c6-63b3-4169-8234-18df1d40f00c)
 
 
-## Suitables Temperature Sensors
+## Suitables Temperature Sensors and IR receptor 
 
 ### Packages 
 ![packages sensors](https://github.com/HighASG936/hw262/blob/main/info/pinouts.jpg)
@@ -17,7 +17,7 @@ Library to use HW262 shield using on Arduino
 * [DS18B20 Programmable Resolution 1-Wire® Digital Thermometer](https://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf)  
 * [LM35 Precision Centigrade Temperature Sensor](https://www.ti.com/lit/ds/symlink/lm35.pdf)
 
-### How Connect it
+### How Connect temp sensors 
 When using the LM35, you must remove jumper J1 from the board and place the sensor on J4 like this:
 
 ![lm35](https://github.com/HighASG936/hw262/blob/main/info/lm35_connected.jpg)
@@ -26,13 +26,15 @@ To use the DS18 sensor, make sure that jumper J1 is on the board and connected l
 
 ![ds18](https://github.com/HighASG936/hw262/blob/main/info/ds18_connected.png)
 
+##How connect IR receptor
+
 
 ## Schematic
 ![schm](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/548a8989-d12f-425e-b720-2dd60f903427)
 
 # How to use library
 
-After to download and install the library into you IDE, write respective header on your project. Then create invoke 
+After to download and install the library into your IDE, write respective header on your project. Then create invoke 
 shield object by HW262:
 
 ```c++
@@ -83,7 +85,7 @@ To get level voltage on A0 by potenciometer R10, use whatever those methods:
 
 
 ## Switches
-Hw262 includes 3 independent switches named s1, s2, s3.But... how to know it was pressed?
+Hw262 includes 3 independent switches named s1, s2, s3. But... how to know it was pressed?
 ```c++
   bool switchState = IsPressed(S1_PIN);    // Read state of switch 1
 
