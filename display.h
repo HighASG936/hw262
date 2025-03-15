@@ -33,9 +33,8 @@
 
     For '8.':
       bit:        0 0 0 0  0 0 0 0                    
-      segment:    3 2 1 0  7 6 5 4
-
-*/
+      segment:    7 6 5 4  3 2 1 0
+  */
 
 // Letters
 #define DISPLAY_A       0x11
@@ -53,6 +52,7 @@
 #define DISPLAY__N      0x55
 #define DISPLAY_O       0xc5
 #define DISPLAY_P       0x31
+#define DISPLAY_Q       0x19
 #define DISPLAY_R       0xf5
 #define DISPLAY_S       0x49
 #define DISPLAY_T       0xe1
@@ -63,6 +63,7 @@
 #define DISPLAY_DEGRESS 0x39
 #define DISPLAY_DOT     0xfe
 #define DISPLAY_BLANK   0xff
+#define DISPLAY_EQUAL   0xed
 
 // Numbers
 #define DISPLAY_0       0x03

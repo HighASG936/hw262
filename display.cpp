@@ -44,12 +44,25 @@ byte Display::convertCharToSegments(char c)
   else if(myChar =='ñ') return DISPLAY__N;
   else if(myChar =='o') return DISPLAY_O;
   else if(myChar =='p') return DISPLAY_P;
+  else if(myChar =='q') return DISPLAY_Q;
   else if(myChar =='r') return DISPLAY_R;
   else if(myChar =='s') return DISPLAY_S;
   else if(myChar =='t') return DISPLAY_T;
   else if(myChar =='u') return DISPLAY_U;
   else if(myChar =='y') return DISPLAY_Y;
-  else if(myChar ==' ') return DISPLAY_BLANK;
+  else if(myChar =='0') return DISPLAY_0;
+  else if(myChar =='1') return DISPLAY_1;
+  else if(myChar =='2') return DISPLAY_2;
+  else if(myChar =='3') return DISPLAY_3;
+  else if(myChar =='4') return DISPLAY_4;
+  else if(myChar =='5') return DISPLAY_5;
+  else if(myChar =='6') return DISPLAY_6;
+  else if(myChar =='7') return DISPLAY_7;
+  else if(myChar =='8') return DISPLAY_8;
+  else if(myChar =='-') return DISPLAY_MINUS;
+  else if(myChar =='º') return DISPLAY_DEGRESS;
+  else if(myChar =='.') return DISPLAY_DOT;
+  else if(myChar =='=') return DISPLAY_EQUAL;
   else return DISPLAY_BLANK;
 }
 
