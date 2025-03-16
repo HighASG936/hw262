@@ -3,5 +3,6 @@
         "compare": "cpp",
         "cstddef": "cpp"
     },
-    "C_Cpp.default.compilerPath": "C:\\Users\\yeyo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++"
+    "C_Cpp.default.compilerPath": "C:\\Users\\yeyo\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
+    "idf.pythonInstallPath": "/usr/bin/python3"
 }

@@ -18,6 +18,38 @@ const byte* Display::numbers[10]
   DISPLAY_9,
 };
 
+const byte* Display::ASCII[256] {
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 8
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 16
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 24
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 32
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 40
+  DISPLAY_LEFTBRACKET, DISPLAY_RIGHTBRACKET, 0xFF, 0xFF, DISPLAY_DOT, DISPLAY_MINUS, DISPLAY_DOT, 0xFF, // 48
+  DISPLAY_0, DISPLAY_1, DISPLAY_2, DISPLAY_3, DISPLAY_4, DISPLAY_5, DISPLAY_6, DISPLAY_7, // 56
+  DISPLAY_8, DISPLAY_9, 0xFF, 0xFF, 0xFF, DISPLAY_EQUAL, 0xFF, 0xFF, // 64
+  0xFF, DISPLAY_A, DISPLAY_B, DISPLAY_C, DISPLAY_D, DISPLAY_E, DISPLAY_F, DISPLAY_G, // 72
+  DISPLAY_H, DISPLAY_I, 0xFF, 0XFF, DISPLAY_L, 0xFF, DISPLAY_N, DISPLAY_O, // 80
+  DISPLAY_P, DISPLAY_Q, DISPLAY_R, DISPLAY_S, DISPLAY_T, DISPLAY_U, 0xFF, 0xFF, // 88
+  0xFF, DISPLAY_Y, 0xFF, DISPLAY_LEFTBRACKET, 0xFF, DISPLAY_RIGHTBRACKET, 0xFF, DISPLAY_UNDERSCORE, // 96
+  0xFF, DISPLAY_A, DISPLAY_B, DISPLAY_C, DISPLAY_D, DISPLAY_E, DISPLAY_F, DISPLAY_G, // 
+  DISPLAY_H, DISPLAY_I, 0xFF, 0XFF, DISPLAY_L, 0xFF, DISPLAY_N, DISPLAY_O, // 112
+  DISPLAY_P, DISPLAY_Q, DISPLAY_R, DISPLAY_S, DISPLAY_T, DISPLAY_U, 0xFF, 0xFF, // 120
+  0xFF, DISPLAY_Y, 0xFF, DISPLAY_LEFTBRACKET, 0xFF, DISPLAY_RIGHTBRACKET, 0xFF, 0xFF, // 128
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 136
+  0xFF, 0xFF, 0xFF, 0xFF, DISPLAY__N, DISPLAY__N, 0xFF, DISPLAY_DEGRESS, // 144
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 152
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 176
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 184
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 192
+  0xFF, 0xFF, 0xFF, 0xFF, DISPLAY_MINUS, 0xFF, 0xFF, 0xFF, // 200
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 208
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 216
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 224
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 232
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 240
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 248
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF // 256
+};
 
 /**
  * @brief Return a byte that can be showed into 
@@ -27,43 +59,43 @@ const byte* Display::numbers[10]
  */
 byte Display::convertCharToSegments(char c)
 {
-  char myChar = tolower(c);
+  // char myChar = tolower(c);
 
-  if(myChar =='a')return DISPLAY_A;
-  else if(myChar =='b')return DISPLAY_B;
-  else if(myChar =='c')return DISPLAY_C;
-  else if(myChar =='d')return DISPLAY_D;
-  else if(myChar =='e')return DISPLAY_E;
-  else if(myChar =='f')return DISPLAY_F;
-  else if(myChar =='g')return DISPLAY_G;
-  else if(myChar =='h')return DISPLAY_H;
-  else if(myChar =='i')return DISPLAY_I;
-  else if(myChar =='j')return DISPLAY_J;
-  else if(myChar =='l')return DISPLAY_L;
-  else if(myChar =='n') return DISPLAY_N;
-  else if(myChar =='ñ') return DISPLAY__N;
-  else if(myChar =='o') return DISPLAY_O;
-  else if(myChar =='p') return DISPLAY_P;
-  else if(myChar =='q') return DISPLAY_Q;
-  else if(myChar =='r') return DISPLAY_R;
-  else if(myChar =='s') return DISPLAY_S;
-  else if(myChar =='t') return DISPLAY_T;
-  else if(myChar =='u') return DISPLAY_U;
-  else if(myChar =='y') return DISPLAY_Y;
-  else if(myChar =='0') return DISPLAY_0;
-  else if(myChar =='1') return DISPLAY_1;
-  else if(myChar =='2') return DISPLAY_2;
-  else if(myChar =='3') return DISPLAY_3;
-  else if(myChar =='4') return DISPLAY_4;
-  else if(myChar =='5') return DISPLAY_5;
-  else if(myChar =='6') return DISPLAY_6;
-  else if(myChar =='7') return DISPLAY_7;
-  else if(myChar =='8') return DISPLAY_8;
-  else if(myChar =='-') return DISPLAY_MINUS;
-  else if(myChar =='º') return DISPLAY_DEGRESS;
-  else if(myChar =='.') return DISPLAY_DOT;
-  else if(myChar =='=') return DISPLAY_EQUAL;
-  else return DISPLAY_BLANK;
+  // if(myChar =='a')return DISPLAY_A;
+  // else if(myChar =='b')return DISPLAY_B;
+  // else if(myChar =='c')return DISPLAY_C;
+  // else if(myChar =='d')return DISPLAY_D;
+  // else if(myChar =='e')return DISPLAY_E;
+  // else if(myChar =='f')return DISPLAY_F;
+  // else if(myChar =='g')return DISPLAY_G;
+  // else if(myChar =='h')return DISPLAY_H;
+  // else if(myChar =='i')return DISPLAY_I;
+  // else if(myChar =='j')return DISPLAY_J;
+  // else if(myChar =='l')return DISPLAY_L;
+  // else if(myChar =='n') return DISPLAY_N;
+  // else if(myChar =='ñ') return DISPLAY__N;
+  // else if(myChar =='o') return DISPLAY_O;
+  // else if(myChar =='p') return DISPLAY_P;
+  // else if(myChar =='q') return DISPLAY_Q;
+  // else if(myChar =='r') return DISPLAY_R;
+  // else if(myChar =='s') return DISPLAY_S;
+  // else if(myChar =='t') return DISPLAY_T;
+  // else if(myChar =='u') return DISPLAY_U;
+  // else if(myChar =='y') return DISPLAY_Y;
+  // else if(myChar =='0') return DISPLAY_0;
+  // else if(myChar =='1') return DISPLAY_1;
+  // else if(myChar =='2') return DISPLAY_2;
+  // else if(myChar =='3') return DISPLAY_3;
+  // else if(myChar =='4') return DISPLAY_4;
+  // else if(myChar =='5') return DISPLAY_5;
+  // else if(myChar =='6') return DISPLAY_6;
+  // else if(myChar =='7') return DISPLAY_7;
+  // else if(myChar =='8') return DISPLAY_8;
+  // else if(myChar =='-') return DISPLAY_MINUS;
+  // else if(myChar =='.') return DISPLAY_DOT;
+  // else if(myChar =='=') return DISPLAY_EQUAL;
+  // else return DISPLAY_BLANK;
+  return Display::ASCII[c];
 }
 
 
