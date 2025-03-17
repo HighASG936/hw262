@@ -145,24 +145,3 @@ Notice that you only have to use the Serial library from the default Arduino lib
 
 <img src="https://github.com/HighASG936/hw262/blob/main/info/serial_port.jpg" />
 <img src="https://content.instructables.com/FSV/M8Q3/HX6ARQI3/FSVM8Q3HX6ARQI3.png" width="450" height="150" />
-
-
-## Future Features
-
-### Gitmoji code for this section
-
-🏷️: on hold
-
-✅: completed
-
-🚧: working on
-
-
-### List
-  🚧 Compatibility with Arduino Mega Board
-
-:construction: Enable write letters on display
-
-:construction: Enable write float numbers
-
-:construction: Custom display characters
