@@ -31,28 +31,28 @@
 
   Examples:
 
-    For '8.':
+    For '8.':     8 4 2 1  8 4 2 1
       bit:        0 0 0 0  0 0 0 0                    
-      segment:    3 2 1 0  7 6 5 4
-
-*/
+      segment:    7 6 5 4  3 2 1 0
+  */
 
 // Letters
 #define DISPLAY_A       0x11
 #define DISPLAY_B       0xc1
-#define DISPLAY_C       0x63
+#define DISPLAY_C       0b11100101//0xe5
 #define DISPLAY_D       0x85
 #define DISPLAY_E       0x61 
 #define DISPLAY_F       0x71
 #define DISPLAY_G       0x09
 #define DISPLAY_H       0x91
-#define DISPLAY_I       0xf3
+#define DISPLAY_I       0b11011111 // 0xf3
 #define DISPLAY_J       0x87
 #define DISPLAY_L       0xe3
 #define DISPLAY_N       0xd5
 #define DISPLAY__N      0x55
 #define DISPLAY_O       0xc5
 #define DISPLAY_P       0x31
+#define DISPLAY_Q       0x19
 #define DISPLAY_R       0xf5
 #define DISPLAY_S       0x49
 #define DISPLAY_T       0xe1
@@ -63,6 +63,10 @@
 #define DISPLAY_DEGRESS 0x39
 #define DISPLAY_DOT     0xfe
 #define DISPLAY_BLANK   0xff
+#define DISPLAY_EQUAL   0xed
+#define DISPLAY_UNDERSCORE 0xef
+#define DISPLAY_LEFTBRACKET 0x63
+#define DISPLAY_RIGHTBRACKET 0x0f
 
 // Numbers
 #define DISPLAY_0       0x03
@@ -82,11 +86,13 @@ class Display
 {    
     protected:
         static const byte* numbers[10];
+        static const byte* ASCII[256]; // Declaration of ASCII
         static byte convertCharToSegments(char c);
         static char* convertIntToBytes(const int16_t number, bool left_zeros=false);
         static Mc74hc595a ic;     
         static const byte hyphen, minus, degrees, dot, Blank;
         static uint8_t getDotPosition(const float number);
+
 
     public:
         static void write(const char* text);        
@@ -101,4 +107,3 @@ class Display
 };
 
 #endif
-
