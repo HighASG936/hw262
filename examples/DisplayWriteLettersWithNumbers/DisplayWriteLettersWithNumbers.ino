@@ -30,7 +30,7 @@ String TextRightRotate(String text) {
   return text;
 }
 
-String abc = "   ROTACAO DE STRING A ESQUERDA 2025   ";
+String abc = "   STRING ROTATION LEFT 2025   ";
 
 void loop() {
   abc = TextLeftRotate(abc);
