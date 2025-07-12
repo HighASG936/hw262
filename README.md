@@ -1,5 +1,20 @@
 
 # hw262
+
+<p align="center">
+  <a href="#english">🇺🇸 English</a> • <a href="#spanish">🇪🇸 Español</a>
+</p>
+
+---
+
+## Language Index
+
+- [English](#english)
+- [Español](#spanish)
+
+---
+
+<a name="english"></a>
 Library to use HW262 shield using on Arduino 
 
 ## General view 
@@ -145,3 +160,5 @@ Notice that you only have to use the Serial library from the default Arduino lib
 
 <img src="https://github.com/HighASG936/hw262/blob/main/info/serial_port.jpg" />
 <img src="https://content.instructables.com/FSV/M8Q3/HX6ARQI3/FSVM8Q3HX6ARQI3.png" width="450" height="150" />
+
+<a name="spanish"></a>
