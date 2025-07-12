@@ -170,11 +170,19 @@ Notice that you only have to use the Serial library from the default Arduino lib
 <a name="spanish"></a>
 Librería para usar el shield HW262 en la plataforma de Arduino
 
+## Content Index
+- [Vista General](#vista-general)
+- [Sensores compatibles](#sensores-compatibles)
+- [Cómo conectar un receptor IR](#como-conectar-un-receptor-ir)
+- [Diagrama esquemático](#diagrama-esquemático)
+- [Cómo usar la librería](#como-usar-la-libreria)
+
+<a name="vista-general"></a>
 ## Vista General
 
 ![devices](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/c9adf9c6-63b3-4169-8234-18df1d40f00c)
 
-
+<a name="sensores-compatibles"></a>
 ## Sensores de temperatura y receptores IR compatibles
 
 ### Encapsulados 
@@ -185,6 +193,7 @@ Librería para usar el shield HW262 en la plataforma de Arduino
 * [DS18B20 Programmable Resolution 1-Wire® Digital Thermometer](https://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf)  
 * [LM35 Precision Centigrade Temperature Sensor](https://www.ti.com/lit/ds/symlink/lm35.pdf)
 
+<a name="como-conectar-un-receptor-ir"></a>como-conectar-un-receptor-ir
 ### Cómo conectar los sensores de temperatura
 Cuando uses el sensor LM35, debes remover el jumper en el conector J1 que está en la tarjeta. 
 Después, coloca el sensor en el conector J4 de la siguiente manera:
@@ -197,11 +206,12 @@ To use the DS18 sensor, make sure that jumper J1 is on the board and connected l
 
 ## Cómo conectar un receptor IR
 
-
+<a name="diagrama-esquemático"></a>
 ## Diagrama esquemático
 
 ![schm](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/548a8989-d12f-425e-b720-2dd60f903427)
 
+<a name="como-usar-la-libreria"></a>
 # Cómo usar la librería
 
 After to download and install the library into your IDE, write respective header on your project. Then create invoke 
