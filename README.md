@@ -188,6 +188,7 @@ Librería para usar el shield HW262 en la plataforma de Arduino
 <a name="sensores-compatibles"></a>
 ## Sensores de temperatura y receptores IR compatibles
 
+
 ### Encapsulados 
 ![packages sensors](https://github.com/HighASG936/hw262/blob/main/info/pinouts.jpg)
 
@@ -207,15 +208,22 @@ To use the DS18 sensor, make sure that jumper J1 is on the board and connected l
 
 ![ds18](https://github.com/HighASG936/hw262/blob/main/info/ds18_connected.png)
 
+[Volver al Índice de contenido](#indice-de-contenido)
+
 ## Cómo conectar un receptor IR
+
+[Volver al Índice de contenido](#indice-de-contenido)
 
 <a name="diagrama-esquemático"></a>
 ## Diagrama esquemático
 
+
 ![schm](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/548a8989-d12f-425e-b720-2dd60f903427)
 
+[Volver al Índice de contenido](#indice-de-contenido)
+
 <a name="como-usar-la-libreria"></a>
-# Cómo usar la librería
+## Cómo usar la librería
 
 After to download and install the library into your IDE, write respective header on your project. Then create invoke 
 shield object by HW262:
@@ -233,7 +241,7 @@ void loop(){
 }
 ```
 
-## Led
+### Led
 
 Hw262 includes 4 independent leds named d4, d3, d2, d1. Follow snnipet show
 how to use it:
@@ -246,7 +254,7 @@ HW262.ledToggle(D3_PIN); // Toggle state of d3
 
 ```
 
-## Buzzer
+### Buzzer
 
 Buzzer included on this board can be use it like this:
 
@@ -256,7 +264,7 @@ Buzzer included on this board can be use it like this:
   HW262.buzzerToggle(); // Turn state of buzzer
 ```
 
-## Potenciometer
+### Potenciometer
 
 The R10 showed on early schematic is connected to A0, an analog pin from Arduino UNO.
 To get level voltage on A0 by potenciometer R10, use whatever those methods:
@@ -267,7 +275,7 @@ To get level voltage on A0 by potenciometer R10, use whatever those methods:
 ```
 
 
-## Switches
+### Switches
 Hw262 includes 3 independent switches named s1, s2, s3. But... how to know it was pressed?
 ```c++
   bool switchState = IsPressed(S1_PIN);    // Read state of switch 1
@@ -279,7 +287,7 @@ Hw262 includes 3 independent switches named s1, s2, s3. But... how to know it wa
 
 ```
 
-## LM35 Sensor
+### LM35 Sensor
 You can connect an Temperature sensor LM35 by dedicated socket showed on early sensors picture. Be
 careful with sensor connections in order to avoid damage it.
 
@@ -292,7 +300,7 @@ By default, hw262 library initialize the board with LM35's features. Here is an 
 Whether you omit */100* at last line and - for instance - real temperature is 23°C you will obtain 2300 as output.
 
 
-## DS18 Sensor
+### DS18 Sensor
 After initializing the library, you can automatically utilize the sensor by adding this line to your code:
 
 ```c++
@@ -301,9 +309,9 @@ uint32_t temp = HW262.ds18.getTemp();
 
 Whether you need to customize features of the ```HW262.ds18``` sensor, you can modify the sensor object using the inherited features from```DallasTemperature.h```.([link](https://github.com/jmchiappa/DallasTemperature) to library docs) 
 
-## IR Receptor 
+### IR Receptor 
 
-## Bluetooth & Serial port
+### Bluetooth & Serial port
 
 Here is a simple example to use bluetooth:
 ```c++
@@ -328,5 +336,7 @@ Notice that you only have to use the Serial library from the default Arduino lib
 
 <img src="https://github.com/HighASG936/hw262/blob/main/info/serial_port.jpg" />
 <img src="https://content.instructables.com/FSV/M8Q3/HX6ARQI3/FSVM8Q3HX6ARQI3.png" width="450" height="150" />
+
+[Volver al Índice de contenido](#indice-de-contenido)
 
 
