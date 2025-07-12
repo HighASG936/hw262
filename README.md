@@ -197,7 +197,7 @@ Librería para usar el shield HW262 en la plataforma de Arduino
 * [DS18B20 Programmable Resolution 1-Wire® Digital Thermometer](https://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf)  
 * [LM35 Precision Centigrade Temperature Sensor](https://www.ti.com/lit/ds/symlink/lm35.pdf)
 
-<a name="como-conectar-un-receptor-ir"></a>como-conectar-un-receptor-ir
+<a name="como-conectar-un-receptor-ir"></a>
 ### Cómo conectar los sensores de temperatura
 Cuando uses el sensor LM35, debes remover el jumper en el conector J1 que está en la tarjeta. 
 Después, coloca el sensor en el conector J4 de la siguiente manera:
