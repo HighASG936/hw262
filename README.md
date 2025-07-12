@@ -1,8 +1,5 @@
-<p align="center">
-  <a href="#english">🇺🇸 English</a> • <a href="#spanish">🇪🇸 Español</a>
-</p>
+# hw262
 
----
 
 ## Language Index
 
@@ -12,7 +9,6 @@
 ---
 
 <a name="english"></a>
-# hw262
 Library to use HW262 shield using on Arduino 
 
 ## General view 
@@ -162,7 +158,6 @@ Notice that you only have to use the Serial library from the default Arduino lib
 ---
 
 <a name="spanish"></a>
-# hw262
 Librería para usar el shield HW262 en la plataforma de Arduino
 
 ## Vista General
