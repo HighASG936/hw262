@@ -12,11 +12,11 @@
 Library to use HW262 shield using on Arduino 
 
 ## Content Index
-- [General View](general-view)
-- [Suitables Sensors](suitable-sensors)
-- [How connect IR receptor](how-connect-ir-receptor)
-- [Schematic](schematic)
-- [How to use library](how-to-use-library)
+- [General View](#general-view)
+- [Suitables Sensors](#suitable-sensors)
+- [How connect IR receptor](#how-connect-ir-receptor)
+- [Schematic](#schematic)
+- [How to use library](#how-to-use-library)
 
 <a name="general-view"></a>
 ## General view 
