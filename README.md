@@ -170,7 +170,8 @@ Notice that you only have to use the Serial library from the default Arduino lib
 <a name="spanish"></a>
 Librería para usar el shield HW262 en la plataforma de Arduino
 
-## Content Index
+<a name="indice-de-contenido"></a>
+## Índice de contenido
 - [Vista General](#vista-general)
 - [Sensores compatibles](#sensores-compatibles)
 - [Cómo conectar un receptor IR](#como-conectar-un-receptor-ir)
@@ -181,6 +182,8 @@ Librería para usar el shield HW262 en la plataforma de Arduino
 ## Vista General
 
 ![devices](https://github.com/HighASG936/hw262-library-arduino/assets/18225112/c9adf9c6-63b3-4169-8234-18df1d40f00c)
+
+[Volver al Índice de contenido](#indice-de-contenido)
 
 <a name="sensores-compatibles"></a>
 ## Sensores de temperatura y receptores IR compatibles
